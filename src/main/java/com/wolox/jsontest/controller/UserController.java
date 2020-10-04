@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.wolox.jsontest.controller.cons.MappingConstants;
 import com.wolox.jsontest.controller.filters.UserFilter;
 import com.wolox.jsontest.data.Album;
+import com.wolox.jsontest.data.Photo;
 import com.wolox.jsontest.data.User;
 import com.wolox.jsontest.service.UserService;
 
@@ -41,5 +42,11 @@ public class UserController {
 	@GetMapping(MappingConstants.CONSULTAR_ALBUMES)
 	public List<Album> listarAlbumes(@PathVariable(MappingConstants.ID) Integer id) {
 		return service.getAlbumsByUserID(id);
+	}
+	
+	@ApiOperation(value = "Consultar fotos por usuario", notes = "Retorna una lista de fotos con el id usuario especificado" )
+	@GetMapping(MappingConstants.CONSULTAR_FOTOS)
+	public List<Photo> listarFotos(@PathVariable(MappingConstants.ID) Integer id) {
+		return service.getPhotosByUserID(id);
 	}
 }

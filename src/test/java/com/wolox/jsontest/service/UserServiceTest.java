@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.wolox.jsontest.controller.filters.UserFilter;
 import com.wolox.jsontest.data.Album;
+import com.wolox.jsontest.data.Photo;
 import com.wolox.jsontest.data.User;
 
 
@@ -19,6 +20,7 @@ public class UserServiceTest {
 	private final int DATA_SIZE = 10;
 	private final int ID_ANTONETTE = 2;
 	private final int ALBUMS_SIZE = 10;
+	private final int PHOTOS_SIZE = 500;
 	private final String USERNAME = "Antonette";
 	private final String NAME = "Ervin Howell";
 	
@@ -68,6 +70,17 @@ public class UserServiceTest {
 	public void listarAlbumesPorUsuario() {			
 		List<Album> albums = userService.getAlbumsByUserID(ID_ANTONETTE);		
 		assertEquals(ALBUMS_SIZE, albums.size());		
+	}
+	
+	
+	/*
+	 * Prueba para buscar todas las fotos a partir de un usuario a traves de su id
+	 * lista debe retornar 500 fotos por usuario
+	 * */
+	@Test
+	public void listarFotosPorUsuario() {			
+		List<Photo> photos = userService.getPhotosByUserID(ID_ANTONETTE);		
+		assertEquals(PHOTOS_SIZE, photos.size());		
 	}
 	
 	

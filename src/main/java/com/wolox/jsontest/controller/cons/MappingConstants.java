@@ -11,6 +11,7 @@ public class MappingConstants {
 	
 	public static final String USUARIOS = "/usuarios";
 	public static final String CONSULTAR_ALBUMES = "/{id}/albumes";
+	public static final String CONSULTAR_FOTOS = "/{id}/fotos";
 	public static final String USERS = "/users";
 	
 	
