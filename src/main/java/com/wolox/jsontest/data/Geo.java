@@ -3,7 +3,7 @@ package com.wolox.jsontest.data;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Geoposicion {
+public class Geo {
 	private double lat;
 	private double lng;
 	public double getLat() {

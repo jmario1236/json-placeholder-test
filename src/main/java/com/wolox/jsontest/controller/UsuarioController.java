@@ -9,8 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wolox.jsontest.controller.cons.MappingConstants;
-import com.wolox.jsontest.data.Usuario;
-import com.wolox.jsontest.service.UsuarioService;
+import com.wolox.jsontest.controller.filters.UserFilter;
+import com.wolox.jsontest.data.User;
+import com.wolox.jsontest.service.UserService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -21,17 +22,17 @@ import io.swagger.annotations.ApiOperation;
 public class UsuarioController {
 	
 	@Autowired
-	private UsuarioService service;
+	private UserService service;
 
 	@ApiOperation(value = "Listar usuarios", notes = "Retorna una lista usuarios" )
 	@GetMapping(MappingConstants.LISTAR)
-	public List<Usuario> listar(){		
-		return service.listarUsuarios();		
+	public List<User> listar(UserFilter userFilter){		
+		return service.listarUsuarios(userFilter);		
 	}
 	
 	@ApiOperation(value = "Consultar usuario", notes = "Retorna un usuario con el id especificado" )
 	@GetMapping(MappingConstants.CONSULTAR)
-	public Usuario consultar(@PathVariable(MappingConstants.ID) Integer id) {
+	public User consultar(@PathVariable(MappingConstants.ID) Integer id) {
 		return service.consultarUsuario(id);
 	}
 	
