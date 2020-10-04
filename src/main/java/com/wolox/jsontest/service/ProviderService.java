@@ -1,4 +1,4 @@
-package com.wolox.jsontest.service.provider;
+package com.wolox.jsontest.service;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -47,8 +47,9 @@ public class ProviderService {
 			queries = oMapper.convertValue(obj, Map.class);
 			params = new LinkedMultiValueMap<String, String>();
 		    for (Entry<String, String> entry : queries.entrySet()) {
-		    	if(entry.getValue() != null) {
-		    		params.add(entry.getKey(), entry.getValue());
+		    	if(entry.getValue() != null) {		
+		    		String value = String.valueOf(entry.getValue());
+		    		params.add(entry.getKey(), value);
 		    	}	        
 		    } 
 		    uriBuilder =  uriBuilder.queryParams(params);

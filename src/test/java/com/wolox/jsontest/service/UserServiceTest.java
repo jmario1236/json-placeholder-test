@@ -8,15 +8,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import com.wolox.jsontest.controller.filters.UserFilter;
+import com.wolox.jsontest.data.Album;
 import com.wolox.jsontest.data.User;
 
 
 
 
 @SpringBootTest
-public class UsuarioServiceTest {
+public class UserServiceTest {
 	private final int DATA_SIZE = 10;
 	private final int ID_ANTONETTE = 2;
+	private final int ALBUMS_SIZE = 10;
 	private final String USERNAME = "Antonette";
 	private final String NAME = "Ervin Howell";
 	
@@ -30,7 +32,7 @@ public class UsuarioServiceTest {
 	 * */
 	@Test
 	public void listarUsuarios() {		
-		List<User> users = userService.listarUsuarios(null);
+		List<User> users = userService.getAll(null);
 		assertEquals(DATA_SIZE, users.size());
 	}
 	
@@ -42,21 +44,31 @@ public class UsuarioServiceTest {
 	public void listarUsuariosFiltro() {		
 		UserFilter user = new UserFilter();
 		user.setUsername(USERNAME);		
-		List<User> users = userService.listarUsuarios(user);
+		List<User> users = userService.getAll(user);
 		assertEquals(1, users.size());
 		assertEquals(ID_ANTONETTE, users.get(0).getId());
 		assertEquals(NAME, users.get(0).getName());
 	}
 	
 	/*
-	 * El servicio expuesto se puede filtrar por campos basicos
-	 * por lo tanto se valida con el usuario de id 2 de la api
+	 * Prueba para buscar usuario a partir de la id
 	 * */
 	@Test
 	public void consultarUsuarioPorID() {			
-		User user = userService.consultarUsuario(ID_ANTONETTE);		
+		User user = userService.getByID(ID_ANTONETTE);		
 		assertEquals(ID_ANTONETTE, user.getId());
 		assertEquals(NAME, user.getName());
 	}
+	
+	/*
+	 * Prueba para buscar albumes a partir de un usuario a traves de su id
+	 * lista debe retornar 10 albumes por usuario
+	 * */
+	@Test
+	public void listarAlbumesPorUsuario() {			
+		List<Album> albums = userService.getAlbumsByUserID(ID_ANTONETTE);		
+		assertEquals(ALBUMS_SIZE, albums.size());		
+	}
+	
 	
 }

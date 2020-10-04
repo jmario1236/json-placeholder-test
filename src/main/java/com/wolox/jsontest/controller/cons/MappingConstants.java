@@ -10,9 +10,15 @@ public class MappingConstants {
 	public static final String CONSULTAR = "/{id}";
 	
 	public static final String USUARIOS = "/usuarios";
+	public static final String CONSULTAR_ALBUMES = "/{id}/albumes";
 	public static final String USERS = "/users";
 	
 	
+	public static final String PHOTOS = "/photos";
+	public static final String FOTOS = "/fotos";
+	
+	public static final String ALBUMS = "/albums";
+	public static final String ALBUMES = "/albumes";
 	
 	
 	public static final String ID_ENDPOINT = "/%d";
