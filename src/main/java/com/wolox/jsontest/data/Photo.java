@@ -1,6 +1,13 @@
 package com.wolox.jsontest.data;
 
-public class Photo {
+import java.io.Serializable;
+
+public class Photo implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private Integer id;
 	private String title;
 	private String url;

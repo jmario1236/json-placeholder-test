@@ -1,6 +1,13 @@
 package com.wolox.jsontest.data;
 
-public class Album {
+import java.io.Serializable;
+
+public class Album implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1205406537130477888L;
+	
 	private Integer id;
 	private String title;
 	private Integer userId;

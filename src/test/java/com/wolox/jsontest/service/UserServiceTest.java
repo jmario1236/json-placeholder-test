@@ -7,10 +7,11 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import com.wolox.jsontest.controller.filters.UserFilter;
+
 import com.wolox.jsontest.data.Album;
 import com.wolox.jsontest.data.Photo;
 import com.wolox.jsontest.data.User;
+import com.wolox.jsontest.data.dto.UserDTO;
 
 
 
@@ -44,7 +45,7 @@ public class UserServiceTest {
 	 * */
 	@Test
 	public void listarUsuariosFiltro() {		
-		UserFilter user = new UserFilter();
+		UserDTO user = new UserDTO();
 		user.setUsername(USERNAME);		
 		List<User> users = userService.getAll(user);
 		assertEquals(1, users.size());

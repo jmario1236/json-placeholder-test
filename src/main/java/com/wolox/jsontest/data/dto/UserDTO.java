@@ -1,8 +1,13 @@
-package com.wolox.jsontest.controller.filters;
+package com.wolox.jsontest.data.dto;
 
+import java.io.Serializable;
 
+public class UserDTO implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
-public class UserFilter {
 	private String username;
 
 	private String email;

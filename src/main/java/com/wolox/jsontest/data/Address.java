@@ -1,11 +1,19 @@
 package com.wolox.jsontest.data;
 
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Address {
+public class Address implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3523995969315259980L;
+	
+	
 	private String street;
 	private String suite;
 	private String city;

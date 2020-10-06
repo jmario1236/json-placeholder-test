@@ -5,9 +5,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 
 import com.wolox.jsontest.controller.cons.MappingConstants;
 import com.wolox.jsontest.data.Album;
+import com.wolox.jsontest.exception.JsonTestException;
 
 
 @Service
@@ -21,8 +23,13 @@ public class AlbumService {
 	}
 	
 	public Album getByID(Integer id) {
-		String path = String.format(MappingConstants.ALBUMS.concat(MappingConstants.ID_ENDPOINT), id);
-		Album album = provideService.setPath(path).get(Album.class);
+		Album album = null;
+		try {
+			String path = String.format(MappingConstants.ALBUMS.concat(MappingConstants.ID_ENDPOINT), id);
+			album = provideService.setPath(path).get(Album.class);
+		}catch(RestClientException ex) {
+			throw new JsonTestException(JsonTestException.ALBUM_NO_EXISTE);
+		}		
 		return album;
 	}
 }

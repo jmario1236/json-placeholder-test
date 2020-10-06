@@ -1,10 +1,17 @@
 package com.wolox.jsontest.data;
 
+import java.io.Serializable;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class User {
+public class User implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5553923348064126889L;
+
 	private Integer id;
 	
 	private String name;	

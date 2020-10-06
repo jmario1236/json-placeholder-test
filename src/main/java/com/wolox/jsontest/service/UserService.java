@@ -6,12 +6,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 
 import com.wolox.jsontest.controller.cons.MappingConstants;
-import com.wolox.jsontest.controller.filters.UserFilter;
 import com.wolox.jsontest.data.Album;
 import com.wolox.jsontest.data.Photo;
 import com.wolox.jsontest.data.User;
+import com.wolox.jsontest.data.dto.UserDTO;
+import com.wolox.jsontest.exception.JsonTestException;
 
 @Service
 public class UserService {
@@ -22,15 +24,20 @@ public class UserService {
 	@Autowired
 	private PhotoService photoService;
 	
-	public List<User> getAll(UserFilter userFilter){	
+	public List<User> getAll(UserDTO userFilter){	
 		User[] user = provideService.setPath(MappingConstants.USERS).setQueryParams(userFilter)
 						.get(User[].class);		
 		return Arrays.asList(user);
 	}
 	
 	public User getByID(Integer id) {
-		String path = String.format(MappingConstants.USERS.concat(MappingConstants.ID_ENDPOINT), id);
-		User user = provideService.setPath(path).get(User.class);		
+		User user = null;
+		try {
+			String path = String.format(MappingConstants.USERS.concat(MappingConstants.ID_ENDPOINT), id);
+			user = provideService.setPath(path).get(User.class);	
+		}catch(RestClientException ex) {
+			throw new JsonTestException(JsonTestException.USUARIO_NO_EXISTE);
+		}			
 		return user;
 	}
 	
