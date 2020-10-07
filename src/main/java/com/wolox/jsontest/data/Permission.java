@@ -3,6 +3,9 @@ package com.wolox.jsontest.data;
 import java.io.Serializable;
 import java.sql.Timestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Permission  implements Serializable{
 
 	/**

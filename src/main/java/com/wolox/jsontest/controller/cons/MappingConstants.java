@@ -20,7 +20,12 @@ public class MappingConstants {
 	
 	public static final String ALBUMS = "/albums";
 	public static final String ALBUMES = "/albumes";
+	public static final String ALBUMES_COMPARTIR = "/{id}/compatir";
 	
+	public static final String COMENTARIOS = "/comentarios";
+	public static final String COMMENTS = "/comments";
+	
+	public static final String POSTS = "/posts";
 	
 	public static final String ID_ENDPOINT = "/%d";
 }
