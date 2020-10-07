@@ -5,7 +5,7 @@ _Prueba practica de consumo de un servicio externo y la manipulación de los dat
 
 ## ENDPOINT habilitados
 
-
+![Endpoints](https://raw.githubusercontent.com/jmario1236/json-placeholder-test/master/Captura.PNG)
 
 
 ## Construido con 🛠️
@@ -14,7 +14,6 @@ _Prueba practica de consumo de un servicio externo y la manipulación de los dat
 * [Spring boot](https://spring.io/projects/spring-boot) - Framework para el desarrollo de aplicaciones java 
 * [H2 db](https://www.h2database.com/html/main.html) - Base de dato en memoria
 * [Swagger](https://swagger.io/) - Herramienta de documentación
-
 
 
 ## Autor ✒️
