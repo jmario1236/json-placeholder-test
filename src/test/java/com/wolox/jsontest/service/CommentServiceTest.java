@@ -20,8 +20,7 @@ public class CommentServiceTest {
 	@Test
 	public void buscarComentarioPorName() {
 		CommentDTO comentario = new CommentDTO();
-		comentario.setName("quo vero");
-		comentario.setIdUser(1);
+		comentario.setName("quo vero");		
 		List<Comment> comentarios = service.get(comentario);
 		assertEquals(1, comentarios.size());
 		assertEquals("Jayne_Kuhic@sydney.com", comentarios.get(0).getEmail());
@@ -30,6 +29,9 @@ public class CommentServiceTest {
 	
 	@Test
 	public void buscarComentarioPorUsuario() {
-		
+		CommentDTO comentario = new CommentDTO();
+		comentario.setIdUser(1);		
+		List<Comment> comentarios = service.get(comentario);
+		assertEquals(50, comentarios.size());		
 	}
 }
