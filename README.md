@@ -12,7 +12,7 @@ _Prueba practica de consumo de un servicio externo y la manipulación de los dat
 
 
 * [Spring boot](https://spring.io/projects/spring-boot) - Framework para el desarrollo de aplicaciones java 
-* [H2 db](https://www.h2database.com/html/main.html) - Base de dato en memoria
+* [H2 db](https://www.h2database.com/html/main.html) - Base de datos en memoria
 * [Swagger](https://swagger.io/) - Herramienta de documentación
 
 
